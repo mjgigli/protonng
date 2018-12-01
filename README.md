@@ -16,3 +16,9 @@ RPC implementation for Protocol Buffers using NNG.
   * https://github.com/cwzx/nngpp
   * Header-only library, C++ wrapper around nng
   * Copy include/nngpp/ to /usr/local/include
+* Google Test
+  * https://github.com/abseil/googletest
+  * Install:
+    * Clone googletest repo
+    * `cd` to googletest/, run `cmake .`
+    * `make` followed by `sudo make install`
