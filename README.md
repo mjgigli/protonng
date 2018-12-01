@@ -1,5 +1,5 @@
-# nngrpc
-RPC implementation using NNG.
+# protonng
+RPC implementation for Protocol Buffers using NNG.
 
 # Dependencies
 * nng
