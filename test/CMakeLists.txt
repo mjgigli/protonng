@@ -16,3 +16,9 @@ add_executable(test-inproc-address test_inproc_address.cpp)
 target_link_libraries(test-inproc-address ${GTEST_BOTH_LIBRARIES} pthread)
 target_link_libraries(test-inproc-address protonng)
 add_test(test-inproc-address test-inproc-address)
+
+# Service tests
+add_executable(test-service test_service.cpp)
+target_link_libraries(test-service ${GTEST_BOTH_LIBRARIES} pthread)
+target_link_libraries(test-service protonng)
+add_test(test-service test-service)

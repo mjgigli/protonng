@@ -23,6 +23,7 @@ add_library(protonng
     src/protonng/tcp_address.cpp
     src/protonng/ipc_address.cpp
     src/protonng/inproc_address.cpp
+    src/protonng/service.cpp
     )
 
 target_link_libraries(protonng absl::base absl::strings)
