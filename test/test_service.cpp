@@ -28,8 +28,29 @@
 #include <string>
 
 #include "protonng/service.hpp"
+#include "protonng/tcp_address.hpp"
 
-TEST(ServiceTest, Name) {
-    protonng::Service test_service("test");
-    EXPECT_EQ(test_service.name(), "test");
+TEST(ServiceConstructorTest, Name) {
+    protonng::Service service("test");
+    EXPECT_EQ(service.name(), "test");
+}
+
+TEST(ServiceConstructorTest, SocketId) {
+    protonng::Service service("test");
+    EXPECT_GT(service.socket_id(), 0);
+}
+
+TEST(ServiceConstructorTest, Move) {
+    protonng::Service service1("test");
+    int id = service1.socket_id();
+    protonng::Service service2(std::move(service1));
+    EXPECT_EQ(service1.socket_id(), -1);
+    EXPECT_EQ(service1.name(), "");
+    EXPECT_EQ(service2.socket_id(), id);
+    EXPECT_EQ(service2.name(), "test");
+}
+
+TEST(ServiceBind, TcpLoopback) {
+    protonng::Service service("test");
+    service.Bind(protonng::TcpAddress("127.0.0.1", 7777));
 }

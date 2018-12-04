@@ -26,17 +26,52 @@
 
 #include "protonng/service.hpp"
 
+#include "nngpp/protocol/rep0.h"
+
 namespace protonng {
 
 Service::Service(absl::string_view name) :
-    name_(name)
+    name_(name),
+    socket_(nng::rep::open())
 {}
 
-Service::~Service()
-{}
+Service::Service(Service&& rhs) noexcept :
+    name_(),
+    socket_()
+{
+    name_ = std::move(rhs.name_);
+    socket_ = std::move(rhs.socket_);
+}
+
+Service& Service::operator=(Service&& rhs) {
+    if (this != &rhs) {
+        name_ = std::move(rhs.name_);
+        socket_ = std::move(rhs.socket_);
+    }
+    return *this;
+}
+
+Service::~Service() = default;
 
 absl::string_view Service::name() const {
     return name_;
+}
+
+int Service::socket_id() const {
+    return socket_.id();
+}
+
+void Service::Bind(const Address& addr) {
+    socket_.listen(std::string(addr.addr()).c_str(),
+                   addr.addr().size());
+
+    // TODO(mjgigli) Check if context(s) created, instantiate if not
+}
+
+void Service::HandleRequest(nng::msg_view msg) {
+    (void)msg;  // TODO(mjgigli) Ignore compiler warnings until implemented
+    // TODO(mjgigli) Trim RPC header from msg
+    // TODO(mjgigli) Parse header, use header info to call CallMethod()
 }
 
 }  // namespace protonng
