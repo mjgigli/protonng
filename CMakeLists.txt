@@ -37,3 +37,6 @@ target_link_libraries(protonng
 
 enable_testing()
 add_subdirectory(test)
+
+# Pull in clang-tidy checks
+include(CMake/clang-dev-tools.cmake)
