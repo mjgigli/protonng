@@ -30,9 +30,9 @@
 
 namespace protonng {
 
-IpcAddress::IpcAddress(absl::string_view addr) :
-    Address(absl::StrCat(Address::Transport::ipc, "://", addr)) {
-    // TODO(mjgigli) validate addr
+IpcAddress::IpcAddress(absl::string_view addr)
+    : Address(absl::StrCat(Address::Transport::ipc, "://", addr)) {
+  // TODO(mjgigli) validate addr
 }
 
 IpcAddress::IpcAddress(const IpcAddress& rhs) = default;
@@ -42,7 +42,7 @@ IpcAddress& IpcAddress::operator=(IpcAddress&& rhs) = default;
 IpcAddress::~IpcAddress() = default;
 
 absl::string_view IpcAddress::transport() const {
-    return Address::Transport::ipc;
+  return Address::Transport::ipc;
 }
 
 }  // namespace protonng

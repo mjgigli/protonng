@@ -34,9 +34,7 @@ const std::string Address::Transport::tcp = "tcp";
 const std::string Address::Transport::inproc = "inproc";
 
 // Address abstract class definition
-Address::Address(absl::string_view addr) :
-    addr_(addr)
-{}
+Address::Address(absl::string_view addr) : addr_(addr) {}
 
 Address::Address(const Address& rhs) = default;
 Address::Address(Address&& rhs) = default;
@@ -44,8 +42,6 @@ Address& Address::operator=(const Address& rhs) = default;
 Address& Address::operator=(Address&& rhs) = default;
 Address::~Address() = default;
 
-absl::string_view Address::addr() const {
-    return addr_;
-}
+absl::string_view Address::addr() const { return addr_; }
 
 }  // namespace protonng

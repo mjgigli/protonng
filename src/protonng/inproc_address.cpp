@@ -30,9 +30,9 @@
 
 namespace protonng {
 
-InprocAddress::InprocAddress(absl::string_view addr) :
-    Address(absl::StrCat(Address::Transport::inproc, "://", addr)) {
-    // TODO(mjgigli) validate addr
+InprocAddress::InprocAddress(absl::string_view addr)
+    : Address(absl::StrCat(Address::Transport::inproc, "://", addr)) {
+  // TODO(mjgigli) validate addr
 }
 
 InprocAddress::InprocAddress(const InprocAddress& rhs) = default;
@@ -42,7 +42,7 @@ InprocAddress& InprocAddress::operator=(InprocAddress&& rhs) = default;
 InprocAddress::~InprocAddress() = default;
 
 absl::string_view InprocAddress::transport() const {
-    return Address::Transport::inproc;
+  return Address::Transport::inproc;
 }
 
 }  // namespace protonng

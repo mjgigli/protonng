@@ -33,13 +33,13 @@
 namespace protonng {
 class TcpAddress : public Address {
  public:
-    TcpAddress(absl::string_view addr, unsigned int port);
-    TcpAddress(const TcpAddress& rhs);
-    TcpAddress(TcpAddress&& rhs);
-    TcpAddress& operator=(const TcpAddress& rhs);
-    TcpAddress& operator=(TcpAddress&& rhs);
-    ~TcpAddress() override;
-    absl::string_view transport() const override;
+  TcpAddress(absl::string_view addr, unsigned int port);
+  TcpAddress(const TcpAddress& rhs);
+  TcpAddress(TcpAddress&& rhs);
+  TcpAddress& operator=(const TcpAddress& rhs);
+  TcpAddress& operator=(TcpAddress&& rhs);
+  ~TcpAddress() override;
+  absl::string_view transport() const override;
 };
 }  // namespace protonng
 

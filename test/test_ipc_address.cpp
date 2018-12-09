@@ -30,9 +30,9 @@
 #include "protonng/ipc_address.hpp"
 
 TEST(IpcAddressTest, Loopback) {
-    protonng::IpcAddress ipc_addr("/tmp/ipc-test");
-    EXPECT_EQ(ipc_addr.addr(), "ipc:///tmp/ipc-test");
-    EXPECT_EQ(ipc_addr.transport(), "ipc");
+  protonng::IpcAddress ipc_addr("/tmp/ipc-test");
+  EXPECT_EQ(ipc_addr.addr(), "ipc:///tmp/ipc-test");
+  EXPECT_EQ(ipc_addr.transport(), "ipc");
 }
 
 TEST(IpcAddressCopy, CopyConstructor) {

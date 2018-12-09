@@ -33,13 +33,13 @@
 namespace protonng {
 class IpcAddress : public Address {
  public:
-    explicit IpcAddress(absl::string_view addr);
-    IpcAddress(const IpcAddress& rhs);
-    IpcAddress(IpcAddress&& rhs);
-    IpcAddress& operator=(const IpcAddress& rhs);
-    IpcAddress& operator=(IpcAddress&& rhs);
-    ~IpcAddress() override;
-    absl::string_view transport() const override;
+  explicit IpcAddress(absl::string_view addr);
+  IpcAddress(const IpcAddress& rhs);
+  IpcAddress(IpcAddress&& rhs);
+  IpcAddress& operator=(const IpcAddress& rhs);
+  IpcAddress& operator=(IpcAddress&& rhs);
+  ~IpcAddress() override;
+  absl::string_view transport() const override;
 };
 }  // namespace protonng
 

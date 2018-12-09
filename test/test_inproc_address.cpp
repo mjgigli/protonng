@@ -30,9 +30,9 @@
 #include "protonng/inproc_address.hpp"
 
 TEST(InprocAddressTest, Loopback) {
-    protonng::InprocAddress inproc_addr("foobar-test");
-    EXPECT_EQ(inproc_addr.addr(), "inproc://foobar-test");
-    EXPECT_EQ(inproc_addr.transport(), "inproc");
+  protonng::InprocAddress inproc_addr("foobar-test");
+  EXPECT_EQ(inproc_addr.addr(), "inproc://foobar-test");
+  EXPECT_EQ(inproc_addr.transport(), "inproc");
 }
 
 TEST(InprocAddressCopy, CopyConstructor) {

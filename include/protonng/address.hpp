@@ -33,25 +33,25 @@
 namespace protonng {
 class Address {
  public:
-    struct Transport {
-        static const std::string ipc;
-        static const std::string tcp;
-        static const std::string inproc;
-    };
+  struct Transport {
+    static const std::string ipc;
+    static const std::string tcp;
+    static const std::string inproc;
+  };
 
-    absl::string_view addr() const;
-    virtual absl::string_view transport() const = 0;
+  absl::string_view addr() const;
+  virtual absl::string_view transport() const = 0;
 
  protected:
-    explicit Address(absl::string_view addr);
-    Address(const Address& rhs);
-    Address(Address&& rhs);
-    Address& operator=(const Address& rhs);
-    Address& operator=(Address&& rhs);
-    virtual ~Address();
+  explicit Address(absl::string_view addr);
+  Address(const Address& rhs);
+  Address(Address&& rhs);
+  Address& operator=(const Address& rhs);
+  Address& operator=(Address&& rhs);
+  virtual ~Address();
 
  private:
-    std::string addr_;
+  std::string addr_;
 };
 }  // namespace protonng
 

@@ -28,31 +28,31 @@
 
 #include <string>
 
-#include "nngpp/socket.h"
 #include "absl/strings/string_view.h"
+#include "nngpp/socket.h"
 
 #include "protonng/address.hpp"
 
 namespace protonng {
 class Service {
  public:
-    explicit Service(absl::string_view name);
-    Service(const Service& rhs) = delete;
-    Service(Service&& rhs) noexcept;
-    Service& operator=(const Service& rhs) = delete;
-    Service& operator=(Service&& rhs);
+  explicit Service(absl::string_view name);
+  Service(const Service& rhs) = delete;
+  Service(Service&& rhs) noexcept;
+  Service& operator=(const Service& rhs) = delete;
+  Service& operator=(Service&& rhs);
 
-    virtual ~Service();
+  virtual ~Service();
 
-    absl::string_view name() const;
-    int socket_id() const;
-    void Bind(const Address& addr);
+  absl::string_view name() const;
+  int socket_id() const;
+  void Bind(const Address& addr);
 
  private:
-    std::string name_;
-    nng::socket socket_;
+  std::string name_;
+  nng::socket socket_;
 
-    void HandleRequest(nng::msg_view msg);
+  void HandleRequest(nng::msg_view msg);
 };
 }  // namespace protonng
 

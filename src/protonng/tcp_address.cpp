@@ -30,9 +30,9 @@
 
 namespace protonng {
 
-TcpAddress::TcpAddress(absl::string_view addr, unsigned int port) :
-    Address(absl::StrCat(Address::Transport::tcp, "://", addr, ":", port)) {
-    // TODO(mjgigli) validate addr
+TcpAddress::TcpAddress(absl::string_view addr, unsigned int port)
+    : Address(absl::StrCat(Address::Transport::tcp, "://", addr, ":", port)) {
+  // TODO(mjgigli) validate addr
 }
 
 TcpAddress::TcpAddress(const TcpAddress& rhs) = default;
@@ -42,7 +42,7 @@ TcpAddress& TcpAddress::operator=(TcpAddress&& rhs) = default;
 TcpAddress::~TcpAddress() = default;
 
 absl::string_view TcpAddress::transport() const {
-    return Address::Transport::tcp;
+  return Address::Transport::tcp;
 }
 
 }  // namespace protonng

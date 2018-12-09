@@ -30,9 +30,9 @@
 #include "protonng/tcp_address.hpp"
 
 TEST(TcpAddressTest, Loopback) {
-    protonng::TcpAddress tcp_addr("127.0.0.1", 7777);
-    EXPECT_EQ(tcp_addr.addr(), "tcp://127.0.0.1:7777");
-    EXPECT_EQ(tcp_addr.transport(), "tcp");
+  protonng::TcpAddress tcp_addr("127.0.0.1", 7777);
+  EXPECT_EQ(tcp_addr.addr(), "tcp://127.0.0.1:7777");
+  EXPECT_EQ(tcp_addr.transport(), "tcp");
 }
 
 TEST(TcpAddressCopy, CopyConstructor) {

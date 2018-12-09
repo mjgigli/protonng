@@ -33,13 +33,13 @@
 namespace protonng {
 class InprocAddress : public Address {
  public:
-    explicit InprocAddress(absl::string_view addr);
-    InprocAddress(const InprocAddress& rhs);
-    InprocAddress(InprocAddress&& rhs);
-    InprocAddress& operator=(const InprocAddress& rhs);
-    InprocAddress& operator=(InprocAddress&& rhs);
-    ~InprocAddress() override;
-    absl::string_view transport() const override;
+  explicit InprocAddress(absl::string_view addr);
+  InprocAddress(const InprocAddress& rhs);
+  InprocAddress(InprocAddress&& rhs);
+  InprocAddress& operator=(const InprocAddress& rhs);
+  InprocAddress& operator=(InprocAddress&& rhs);
+  ~InprocAddress() override;
+  absl::string_view transport() const override;
 };
 }  // namespace protonng
 
