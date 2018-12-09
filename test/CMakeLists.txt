@@ -1,24 +1,19 @@
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-# NNG transport address tests
-add_executable(test-tcp-address test_tcp_address.cpp)
-target_link_libraries(test-tcp-address ${GTEST_BOTH_LIBRARIES} pthread)
-target_link_libraries(test-tcp-address protonng)
-add_test(test-tcp-address test-tcp-address)
-
-add_executable(test-ipc-address test_ipc_address.cpp)
-target_link_libraries(test-ipc-address ${GTEST_BOTH_LIBRARIES} pthread)
-target_link_libraries(test-ipc-address protonng)
-add_test(test-ipc-address test-ipc-address)
-
-add_executable(test-inproc-address test_inproc_address.cpp)
-target_link_libraries(test-inproc-address ${GTEST_BOTH_LIBRARIES} pthread)
-target_link_libraries(test-inproc-address protonng)
-add_test(test-inproc-address test-inproc-address)
+set(TEST_SRCS
+    test_inproc_address.cpp
+    test_ipc_address.cpp
+    test_tcp_address.cpp
+    test_service.cpp
+    )
 
 # Service tests
-add_executable(test-service test_service.cpp)
-target_link_libraries(test-service ${GTEST_BOTH_LIBRARIES} pthread)
-target_link_libraries(test-service protonng)
-add_test(test-service test-service)
+foreach(TEST_FILE ${TEST_SRCS})
+    get_filename_component(TEST_MODULE ${TEST_FILE} NAME_WE)
+    message("Test ${TEST_MODULE}")
+    add_executable(${TEST_MODULE} ${TEST_FILE})
+    target_link_libraries(${TEST_MODULE} ${GTEST_BOTH_LIBRARIES} pthread)
+    target_link_libraries(${TEST_MODULE} protonng)
+    add_test(${TEST_MODULE} ${TEST_MODULE})
+endforeach()
