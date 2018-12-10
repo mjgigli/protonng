@@ -11,9 +11,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wextra -fPIC")
 include(GNUInstallDirs)
 
 # Pull in abseil-cpp library and googletest
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/CMake)
-include(CMake/DownloadAbseil.cmake)
-include(CMake/DownloadGTest.cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
+include(cmake/DownloadAbseil.cmake)
+include(cmake/DownloadGTest.cmake)
 
 # Pull in nng
 find_package(nng CONFIG REQUIRED)
@@ -39,4 +39,4 @@ enable_testing()
 add_subdirectory(test)
 
 # Pull in clang-tidy checks
-include(CMake/clang-dev-tools.cmake)
+include(cmake/clang-dev-tools.cmake)
